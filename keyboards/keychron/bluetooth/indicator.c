@@ -487,7 +487,7 @@ __attribute__((weak)) void os_state_indicate(void) {
 #        if defined(DIM_CAPS_LOCK)
         SET_LED_OFF(CAPS_LOCK_INDEX);
 #        else
-        SET_LED_ON(CAPS_LOCK_INDEX);
+        rgb_matrix_set_color_all(255, 0, 0);
 #        endif
     }
 #    endif

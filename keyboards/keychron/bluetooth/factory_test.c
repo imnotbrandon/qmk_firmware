@@ -193,7 +193,7 @@ void process_record_factory_reset(uint16_t keycode, keyrecord_t *record) {
     }
 }
 
-#ifdef LED_MATRIX_ENABLE
+#if defined(LED_MATRIX_ENABLE) && defined(ENABLE_FACTORY_TEST_INDICATORS)
 bool led_matrix_indicators_user(void) {
     if (factory_reset_ind_state) {
         led_matrix_set_value_all(factory_reset_ind_state % 2 ? 0 : 255);
@@ -203,7 +203,7 @@ bool led_matrix_indicators_user(void) {
 }
 #endif
 
-#ifdef RGB_MATRIX_ENABLE
+#if defined(RGB_MATRIX_ENABLE) && defined(ENABLE_FACTORY_TEST_INDICATORS)
 bool rgb_matrix_indicators_user(void) {
     if (factory_reset_ind_state) {
         backlight_test_mode = BACKLIGHT_TEST_OFF;
